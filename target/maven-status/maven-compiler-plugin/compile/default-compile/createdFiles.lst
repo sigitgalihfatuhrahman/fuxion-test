@@ -1,0 +1,10 @@
+com/app/fuxion/responses/Response.class
+com/app/fuxion/controller/UserController.class
+com/app/fuxion/services/UserServiceImpl.class
+com/app/fuxion/requests/UserRequest.class
+com/app/fuxion/dto/UserDto.class
+com/app/fuxion/exceptions/ResourceNotFoundException.class
+com/app/fuxion/services/UserService.class
+com/app/fuxion/entities/UserEntity.class
+com/app/fuxion/FuxionApplication.class
+com/app/fuxion/repositories/UserRepository.class

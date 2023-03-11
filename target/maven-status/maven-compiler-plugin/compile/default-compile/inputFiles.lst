@@ -1,0 +1,10 @@
+/Users/sigitgalih/Documents/fuxion-test/src/main/java/com/app/fuxion/requests/UserRequest.java
+/Users/sigitgalih/Documents/fuxion-test/src/main/java/com/app/fuxion/entities/UserEntity.java
+/Users/sigitgalih/Documents/fuxion-test/src/main/java/com/app/fuxion/exceptions/ResourceNotFoundException.java
+/Users/sigitgalih/Documents/fuxion-test/src/main/java/com/app/fuxion/dto/UserDto.java
+/Users/sigitgalih/Documents/fuxion-test/src/main/java/com/app/fuxion/responses/Response.java
+/Users/sigitgalih/Documents/fuxion-test/src/main/java/com/app/fuxion/repositories/UserRepository.java
+/Users/sigitgalih/Documents/fuxion-test/src/main/java/com/app/fuxion/controller/UserController.java
+/Users/sigitgalih/Documents/fuxion-test/src/main/java/com/app/fuxion/services/UserService.java
+/Users/sigitgalih/Documents/fuxion-test/src/main/java/com/app/fuxion/services/UserServiceImpl.java
+/Users/sigitgalih/Documents/fuxion-test/src/main/java/com/app/fuxion/FuxionApplication.java
