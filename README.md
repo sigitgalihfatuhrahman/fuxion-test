@@ -83,4 +83,5 @@ API LIST
       }
 5. DOWNLOAD --> localhost:8082/api/user/download/1
 
-* LINK POSTMENT PUBLIC
+* LINK POSTMENT COLLECTION PUBLIC
+  https://api.postman.com/collections/11320237-5702e9a8-f367-4027-a882-aa7ac9370f7e?access_key=PMAT-01GV942MTBRG2BKGS1CG15VEVZ
