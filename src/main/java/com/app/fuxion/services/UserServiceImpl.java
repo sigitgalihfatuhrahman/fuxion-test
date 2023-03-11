@@ -88,39 +88,46 @@ public class UserServiceImpl implements UserService{
     @Override
     public Response exportUser(List<Long> id) {
         Response response = null;
-        List<Object> arr = new ArrayList<>();
-        id.forEach( ids -> {
-            UserEntity usr = this.findById(ids);
-            Document document = new Document();
-            String documentName = "src/main/resources/document/"+format.format(date)+"_"+usr.getName()+"_document.pdf";
-            String fileName = format.format(date)+"_"+usr.getName()+"_document.pdf";
-            try {
-                if (usr != null){
-                    if (usr.getExported().equals(0)){
-                        usr.setExported(1);
-                        usr.setFileName(fileName);
-
+        List<UserEntity> usrSaveAll = null;
+        List<UserEntity> objUser = new ArrayList<>();
+        Document document = new Document();
+        String path = "src/main/resources/document/";
+        try {
+            id.forEach(arrId -> {
+                UserEntity usr = this.findById(arrId);
+                String fileName = format.format(date) + "_" + usr.getName() + "_document.pdf";
+                try {
+                    if (usr.getExported() != 1) {
+                        String documentName = path + fileName;
                         PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream(documentName));
                         document.open();
                         addMetaData(document);
                         addContent(document, usr);
                         document.close();
                         writer.close();
-                        // to export in database
+                        // ENCODE FILE DOCUMENT
                         byte[] byteFile = getByteArrayFromFile(documentName);
                         String file = Base64.getEncoder().encodeToString(byteFile);
+                        // SET ON OBJ USER , MAPING
+                        usr.setExported(1);
+                        usr.setFileName(fileName);
                         usr.setDocumentFile(file);
-                        usr = userRepository.save(usr);
-                        arr.add(usr);
-                    } else {
-                        arr.add(usr);
+                        objUser.add(usr);
                     }
+                } catch (Exception e){
+                    e.printStackTrace();
                 }
-            } catch (Exception e){
-                e.printStackTrace();
-            }
-        });
-        response = arr != null ? new Response("Success", arr) : new Response(null);
+            });
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+
+        if (!objUser.isEmpty()){
+            usrSaveAll = userRepository.saveAll(objUser);
+            response = usrSaveAll != null ? new Response("Success", usrSaveAll) : new Response(null);
+        } else {
+            response = new Response("Success", "this row data has been exported before it");
+        }
         return response;
     }
 
